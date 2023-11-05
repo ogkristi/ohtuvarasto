@@ -12,6 +12,11 @@ class TestVarasto(unittest.TestCase):
         varasto = Varasto(10,-1)
         
         self.assertAlmostEqual(varasto.saldo, 0)
+
+    def test_konstruktori_ylivuoto(self):
+        varasto = Varasto(10,11)
+
+        self.assertAlmostEqual(varasto.saldo, 10)
     
     def setUp(self):
         self.varasto = Varasto(10)
@@ -28,12 +33,12 @@ class TestVarasto(unittest.TestCase):
 
         self.assertAlmostEqual(self.varasto.saldo, 8)
 
-    def test_lisays_lisaa_negatiivinen(self):
+    def test_lisays_negatiivinen(self):
         self.varasto.lisaa_varastoon(-1)
 
         self.assertEqual(self.varasto.saldo, 0)
-
-    def test_lisays_lisaa_ylivuoto(self):
+    
+    def test_lisays_ylivuoto(self):
         self.varasto.lisaa_varastoon(11)
 
         self.assertEqual(self.varasto.saldo, 10)
